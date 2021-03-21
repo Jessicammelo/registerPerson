@@ -13,37 +13,38 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.register.person.models.Address;
 import br.com.register.person.models.Person;
-import br.com.register.person.service.PersonService;
+import br.com.register.person.service.AddressService;
 
 @RestController
-@RequestMapping("/people")//plural
-public class PersonController {
+@RequestMapping("/addresses")
+public class AddressController {
 
 	@Autowired
-	private PersonService personService;
+	AddressService addressService;
 	
 	@PostMapping
-	public Person create(@RequestBody Person person) {
-		return personService.create(person);
+	public Address create(@RequestBody Address address) {
+		return addressService.create(address);
 	}
 	
 	@GetMapping("/{id}")
-	public Person findById(@PathVariable Integer id) {
-		return personService.findById(id);
+	public Address findById(@PathVariable Integer id) {
+		return addressService.findById(id);
 	}
 	
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Integer id) {
-		personService.delete(id);
+		addressService.delete(id);
 	}
 	
 	@GetMapping
-	public List<Person> listPerson() {
-		return personService.listPerson();
+	public List<Address> listAddress() {
+		return addressService.listAddress();
 	}
 	
-	@GetMapping("/{id}/address")
-	public List<Address> listAddress(@PathVariable Integer id){
-		return personService.getAddressByPerson(id);
+	@GetMapping("/{id}/person")
+	public Person getPerson(@PathVariable Integer id) {
+		return addressService.getPerson(id);
 	}
+	
 }

@@ -24,7 +24,7 @@ public class Person {
 	
 	private DocumentType documentType;
 	
-	private String Document;
+	private String document;
 
 	public Integer getId() {
 		return Id;
@@ -67,11 +67,11 @@ public class Person {
 	}
 
 	public String getDocument() {
-		return Document;
+		return document;
 	}
 
 	public void setDocument(String document) {
-		Document = document;
+		this.document = document;
 	}
 	
 	
